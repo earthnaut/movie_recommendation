@@ -30,8 +30,8 @@ movie_df = movie_df.merge(avg_rating, on = 'movie_id')
 
 
 
-# 당첨자 3명
-winner = [640, 269, 155]
+# 당첨자 랜덤 3명
+winner = list(user_df.sample(n=3)['user_id'])
 
 # 당첨자를 위한 추천영화
 recom_movies = {winner[0] : {},
