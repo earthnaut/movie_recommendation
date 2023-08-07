@@ -120,14 +120,16 @@ for i in winner:
 
     # 선호하는 장르를 전부 포함한 영화 (없으면 반복)
     for j in range(len(genre_df.genre), 0, -1):
-        recom_movie = movie_df[(movie_df[genre_df.genre[:j]] == 1).all(axis = 1)]['movie_title'] # 해당 장르 == 1을 만족하는 모든 영화의 제목
+        recom_movie = movie_df[(movie_df[genre_df.genre[:j]] == 1).all(axis = 1)] # 해당 장르 == 1을 만족하는 모든 영화
+        recom_movie.sort_values('rating', ascending = False, inplace = True) # 평점순 정렬
+        recom_movie = recom_movie[recom_movie['rating'] >= 4.0] # 평점 4점 이상 영화만 해당
 
         if recom_movie.empty == True: # 만족하는 영화가 없으면
             pass
 
         else: # 만족하는 영화가 있으면
             genre_str = ' '.join(list(genre_df.genre[:j])) # 해당 장르
-            recom_movies[i].update({genre_str : list(recom_movie)[:(recom_num_total - recom_num_current)]}) # 해당 장르 : 영화제목[영화개수]
+            recom_movies[i].update({genre_str : list(recom_movie['movie_title'])[:(recom_num_total - recom_num_current)]}) # 해당 장르 : 영화제목[영화개수]
             recom_num_current += len(recom_movies[i][genre_str]) # 현재 영화추천개수 갱신
         if recom_num_current >= recom_num_total: # 추천개수만큼 모았으면 break
             break
