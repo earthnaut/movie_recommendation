@@ -2,15 +2,13 @@ import pandas as pd
 
 
 
-# 데이터 불러오기
-
-rating_df = pd.read_csv('C:/Users/User/Desktop/dataset/movie_lense_100k/u.data', sep = '\t', header = None)
+rating_df = pd.read_csv('./movie_lense_100k/u.data', sep = '\t', header = None)
 rating_df.columns = ['user_id', 'item_id', 'rating', 'timestamp'] # 리뷰자 id, 영화 id, 별점, 리뷰기록시간
 
-user_df = pd.read_csv('C:/Users/User/Desktop/dataset/movie_lense_100k/u.user', sep = '|', header = None)
+user_df = pd.read_csv('./movie_lense_100k/u.user', sep = '|', header = None)
 user_df.columns = ['user_id', 'age', 'gender', 'occupation', 'zip_code'] # 나이, 성별, 직업, 어디사는지
 
-movie_df = pd.read_csv('C:/Users/User/Desktop/dataset/movie_lense_100k/u.item', sep = '|', header = None, encoding = 'latin_1')
+movie_df = pd.read_csv('./movie_lense_100k/u.item', sep = '|', header = None, encoding = 'latin_1')
 movie_df.columns = ['movie_id' , 'movie_title' , 'release_date' , 'video_release_date' ,
               'IMDb_URL' , 'unknown' , 'Action' , 'Adventure' , 'Animation' ,
               'Children' , 'Comedy' , 'Crime' , 'Documentary' , 'Drama' , 'Fantasy' ,
