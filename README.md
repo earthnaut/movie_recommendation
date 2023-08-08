@@ -1,7 +1,7 @@
 # Movie Recommendation
 
-## movie_recommendation_not_use_AI-model  
-AI 모델을 사용하지 않은 영화 추천 모델
+## movie_recommendation_not_ML-model  
+머신러닝 모델을 사용하지 않은 영화 추천 모델
 - 상황 : 영화 리뷰 남긴 평가자 중 3명을 선정하여, 당첨자에게 4편의 영화를 추천하고 해당 영화의 굿즈를 제공하려 함 (이미 본 영화더라도 추천에서 제외되지 않음)
 
 - 영화 추천 기준 : 당첨자가 선호하는 장르를 최대한 많이 포함하는 상위 4편의 영화를 추천함
